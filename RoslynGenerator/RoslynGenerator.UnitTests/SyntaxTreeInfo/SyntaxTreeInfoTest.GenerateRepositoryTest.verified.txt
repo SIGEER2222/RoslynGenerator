@@ -1,0 +1,9 @@
+﻿namespace TestNamespace
+{
+    public class MaterialNoAttrRepository : SemiFrontEndRepository<FabMaterialNoAttr>, IMaterialNoAttrRepository
+    {
+        public MaterialNoAttrRepository(IDbContextProvider<IMomDbContext> dbContextProvider, IDistributedCache<FabMaterialNoAttr> cache) : base(dbContextProvider, cache)
+        {
+        }
+    }
+}
