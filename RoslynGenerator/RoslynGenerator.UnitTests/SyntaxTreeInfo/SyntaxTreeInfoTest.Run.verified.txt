@@ -1,0 +1,67 @@
+﻿{
+  Namespace: TestNamespace,
+  Usings: [
+    System,
+    System.Collections.Generic,
+    System.ComponentModel.DataAnnotations,
+    System.ComponentModel.DataAnnotations.Schema,
+    Microsoft.EntityFrameworkCore
+  ],
+  Attributes: [
+    Table("fab_lot_trans_setting"),
+    Index("LotName", Name = "idx_LotName")
+  ],
+  ClassName: FabLotTransSetting,
+  Members: [
+    {
+      Name: SysId,
+      Type: Guid,
+      Attributes: [
+        Key,
+        MySqlCharSet("ascii"),
+        MySqlCollation("ascii_general_ci")
+      ]
+    },
+    {
+      Name: LotName,
+      Type: string,
+      Attributes: [
+        StringLength(20),
+        Required
+      ],
+      DefaultValue: null!
+    },
+    {
+      Name: DefaultQuantity,
+      Type: int
+    },
+    {
+      Name: Plan,
+      Type: string,
+      Attributes: [
+        StringLength(20),
+        Required
+      ],
+      DefaultValue: null!
+    },
+    {
+      Name: Product,
+      Type: string,
+      Attributes: [
+        StringLength(20),
+        Required
+      ],
+      DefaultValue: null!
+    },
+    {
+      Name: LotNameNavigation,
+      Type: MomLot,
+      Attributes: [
+        ForeignKey("LotName"),
+        InverseProperty("FabLotTransSettings"),
+        Required
+      ],
+      DefaultValue: null!
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace TestNamespace
+{
+    public interface IFabLotTransSetting : ISemiFrontEndEntity
+    {
+        Guid SysId { get; set; }
+
+        string LotName { get; set; }
+
+        int DefaultQuantity { get; set; }
+
+        string Plan { get; set; }
+
+        string Product { get; set; }
+
+        MomLot LotNameNavigation { get; set; }
+    }
+}
