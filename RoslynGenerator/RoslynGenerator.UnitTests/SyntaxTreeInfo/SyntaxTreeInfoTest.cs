@@ -9,6 +9,16 @@ namespace RoslynGenerator.UnitTests.SyntaxTreeInfo {
     }
 
     [Fact]
+    public async Task GenerateClassWithInterfaceTest() {
+      var classInfo = this.classInfo;
+      classInfo.BaseClass = "SemiFrontEndEntity";
+      classInfo.ImplementedInterfaces = new List<string> { "I" + classInfo.ClassName };
+      var repName = "I" + classInfo.ClassName.Replace("Fab", "") + "Repository";
+      var buildClass = BuildRepository.GenerateClassWithInterface(classInfo, repName, "ISemiFrontEndRepository", classInfo.ClassName);
+      await Verify(buildClass);
+    }
+
+    [Fact]
     public async Task GenerateRepositoryCodeTest() {
       // var buildRepository = BuildRepository.GenerateRepositoryCode(classInfo);
       // await Verify(buildRepository);

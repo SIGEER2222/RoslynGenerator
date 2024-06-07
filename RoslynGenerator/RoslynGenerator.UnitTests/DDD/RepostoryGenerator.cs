@@ -17,11 +17,11 @@ public class RepostoryGenerator {
                 assemblyIdentityComparer: DesktopAssemblyIdentityComparer.Default),
         syntaxTrees: new[] { CSharpSyntaxTree.ParseText(ScribanHelp.GetTextByRelativePaths(file)) },
         references: new[] { MetadataReference.CreateFromFile(typeof(object).Assembly.Location) });
-    var sourceFiles= compilation.SyntaxTrees.Select(x => new SourceFile(x, string
+    var sourceFiles = compilation.SyntaxTrees.Select(x => new SourceFile(x, string
         .Empty));
 
-    var namespaces = sourceFiles.Select(x=>x.Namespaces).ToList();
-    var usings = sourceFiles.Select(x=>x.Usings).ToList();
+    var namespaces = sourceFiles.Select(x => x.Namespaces).ToList();
+    var usings = sourceFiles.Select(x => x.Usings).ToList();
     var syntextTrees = sourceFiles.Select(x => x.SyntaxTree).ToList();
     var classs = sourceFiles.Select(x => x.GetAllClasses()).ToList();
   }

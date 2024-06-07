@@ -1,6 +1,6 @@
 namespace RoslynGenerator.Build;
-public interface BuildInterface {
-  static string GenerateInterfaceCode(ClassInfo classInfo) {
+public class BuildInterface {
+  public static string GenerateInterfaceCode(ClassInfo classInfo) {
     var namespaceDeclaration = CodeGenerationHelper.GenerateNamespace(classInfo.Namespace);
     var usings = CodeGenerationHelper.GenerateUsings(classInfo.Usings);
 
